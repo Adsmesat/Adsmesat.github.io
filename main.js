@@ -23,7 +23,7 @@ function createMatrix(size)
 		for(var j = size; j > 0; j--)
 		{
 			var el = document.createElement("input");
-			//el.setAttribute('maxlength',3)
+					el.setAttribute('maxlength',3)
 			el.className= 'el'
 			el.style.border = '2px solid black';
 			matrix.append(el);
@@ -93,7 +93,7 @@ function calculate()
 		for(var i = 0; i < size; i++)
 	    for(var j = 0; j < size; j++)
 	    {	
-	        if(Base[i][k] + Base[k][j] < 100 && i != j)
+	        if(Base[i][k] + Base[k][j] < 100 )
 	    	  {
 	    	  	  if(Math.min(Base[i][j], Base[i][k] + Base[k][j]) == Base[i][k] + Base[k][j] && Base[i][j] != (Base[i][k] + Base[k][j]))
 	    	  		{
