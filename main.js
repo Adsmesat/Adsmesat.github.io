@@ -1,6 +1,7 @@
 $('.setupNew').on('click', function() {createMatrix($('.X')[0].value);})
 $('.calculate').on('click', function(){ calculate();})
 $('.fillUp').on('click', function(){fill();})
+var L = [];
 var S = [];
 var Base = [];
 
@@ -66,11 +67,15 @@ function calculate()
 				for(var i = 0; i < size; i++)
 				{
 					S[i] = [];
-					
+					L[i] = [];		
 				}
 				for(var i = 0; i < size; i++)
 				for(var j = 0; j < size; j++)
-						S[j][i] = i+1; 
+				{
+						S[j][i] = i+1;
+						L[j][i] = i+1;
+				}
+					 
 		}
 
 		p = document.createTextNode('D: '+k);
@@ -82,7 +87,7 @@ function calculate()
 		$('#solution-form').append(br);
 		
 		
-		prev = Base;
+		
 		p = document.createTextNode('S: '+k)
 		$('#solution-form').append(p);
 		matrix_into_dom(S);
@@ -90,19 +95,24 @@ function calculate()
 		$('#solution-form').append(br);
 		$('#solution-form').append(br);
 		
+		L = S;
 		for(var i = 0; i < size; i++)
 	    for(var j = 0; j < size; j++)
 	    {	
-	        if(Base[i][k] + Base[k][j] < 100 )
-	    	  {
-	    	  	  if(Math.min(Base[i][j], Base[i][k] + Base[k][j]) == Base[i][k] + Base[k][j] && Base[i][j] != (Base[i][k] + Base[k][j]))
-	    	  		{
-	    	  			S[i][j] = k+1;
-	    	  		}
-	    	  	  Base[i][j] = Math.min(Base[i][j], Base[i][k] + Base[k][j]);
-	    	  }
+	        if(Base[i][k] + Base[k][j] < 100)
+	        {
+	    	 	if(Math.min(Base[i][j], Base[i][k] + Base[k][j]) == Base[i][k] + Base[k][j] && Base[i][j] != (Base[i][k] + Base[k][j]))
+	    	  	{
+	    	  	   S[i][j] = L[i][k];
+	    	  	}
+
+	    	  	Base[i][j] = Math.min(Base[i][j], Base[i][k] + Base[k][j]);
+	    	}
 	    	  
 	    }
+
+
+
 
 
 	}
