@@ -126,6 +126,12 @@ function calculate()
 	
 	matrix_into_dom(S);
 
+		$('.matrix-align').remove();
+		$('.el').remove();
+		$('input').remove();
+		$('button').remove();
+		$('.input-group-prepend').remove();
+
 }
 
 function matrix_into_dom(m)
