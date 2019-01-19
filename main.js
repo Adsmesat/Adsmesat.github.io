@@ -25,7 +25,7 @@ function createMatrix(size)
 			var el = document.createElement("input");
 			el.setAttribute('maxlength',3)
 			el.className= 'el'
-				
+			el.style.border = '2px solid black';
 			matrix.append(el);
 			
 		}

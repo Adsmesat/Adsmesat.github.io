@@ -16,6 +16,11 @@ button.width
 
 }
 
+.el
+{
+	border: 2px solid black!Important:;
+}
+
 #solution-form
 {
 	text-align: center;
